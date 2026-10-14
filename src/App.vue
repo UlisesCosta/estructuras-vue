@@ -1,11 +1,20 @@
-<script setup></script>
+<script setup>
+const links = [
+  { to: '/v-if', label: 'v-if' },
+  { to: '/v-show', label: 'v-show' },
+  { to: '/v-for', label: 'v-for' },
+  { to: '/key', label: ':key' }
+]
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
-</template>
+  <nav class="nav" aria-label="Principal">
+    <router-link v-for="link in links" :key="link.to" :to="link.to">
+      {{ link.label }}
+    </router-link>
+  </nav>
 
-<style scoped></style>
+  <main class="page">
+    <router-view />
+  </main>
+</template>
