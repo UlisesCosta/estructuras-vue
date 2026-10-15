@@ -2,12 +2,12 @@
 import { ref } from 'vue'
 import CodeBlock from '../components/CodeBlock.vue'
 
-const estado = ref('cargando')
-const estados = ['cargando', 'exito', 'error']
+const estado = ref('Mayor')
+const estados = ['Mayor', 'Menor con Tutor', 'Menor']
 
-const codigo = `<p v-if="estado === 'cargando'">Cargando datos...</p>
-<p v-else-if="estado === 'exito'">Datos cargados correctamente.</p>
-<p v-else>Ocurrió un error al cargar.</p>`
+const codigo = `<p v-if="estado === 'Mayor'"> Si puede crear cuenta bancaria</p>
+<p v-else-if="estado === 'Menor con Tutor'">Puede crear una cuenta bancaria siempre y cuando tenga un tutor.</p>
+<p v-else>No puede crear una cuenta bancaria.</p>`
 </script>
 
 <template>
@@ -22,19 +22,23 @@ const codigo = `<p v-if="estado === 'cargando'">Cargando datos...</p>
   <h2>Ejemplo</h2>
   <CodeBlock :code="codigo" />
 
-  <h2>Resultado</h2>
+  <h2></h2>
   <div class="controls">
     <button
-      v-for="e in estados"
-      :key="e"
-      :class="{ active: estado === e }"
-      @click="estado = e"
-    >
-      {{ e }}
-    </button>
+      :class="{ active: estado === 'Mayor' }"
+      @click="estado = 'Mayor'"
+    >Mayor</button>
+    <button
+      :class="{ active: estado === 'Menor con Tutor' }"
+      @click="estado = 'Menor con Tutor'"
+    >Menor con Tutor</button>
+    <button
+      :class="{ active: estado === 'Menor' }"
+      @click="estado = 'Menor'"
+    >Menor</button>
   </div>
 
-  <p v-if="estado === 'cargando'">Cargando datos...</p>
-  <p v-else-if="estado === 'exito'">Datos cargados correctamente.</p>
-  <p v-else>Ocurrió un error al cargar.</p>
+  <p v-if="estado === 'Mayor'">Si puede crear una cuenta bancaria</p>
+  <p v-else-if="estado === 'Menor con Tutor'">Puede crear una cuenta bancaria siempre y cuando tenga un tutor.</p>
+  <p v-else>No puede crear una cuenta bancaria.</p>
 </template>
