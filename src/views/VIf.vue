@@ -6,7 +6,9 @@ const estado = ref('Mayor')
 const estados = ['Mayor', 'Menor con Tutor', 'Menor']
 
 const codigo = `<p v-if="estado === 'Mayor'"> Si puede crear cuenta bancaria</p>
-<p v-else-if="estado === 'Menor con Tutor'">Puede crear una cuenta bancaria siempre y cuando tenga un tutor.</p>
+<p v-else-if="estado === 'Menor con Tutor'">
+  Puede crear una cuenta bancaria siempre y cuando tenga un tutor.
+</p>
 <p v-else>No puede crear una cuenta bancaria.</p>`
 </script>
 
@@ -19,7 +21,7 @@ const codigo = `<p v-if="estado === 'Mayor'"> Si puede crear cuenta bancaria</p>
     no existen en el DOM.
   </p>
 
-  <h2>Ejemplo</h2>
+  <h2>Ejemplo: Edad para crear cuenta bancaria</h2>
   <CodeBlock :code="codigo" />
 
   <h2></h2>
@@ -27,15 +29,15 @@ const codigo = `<p v-if="estado === 'Mayor'"> Si puede crear cuenta bancaria</p>
     <button
       :class="{ active: estado === 'Mayor' }"
       @click="estado = 'Mayor'"
-    >Mayor</button>
+    >Mayor de 18 años</button>
     <button
       :class="{ active: estado === 'Menor con Tutor' }"
       @click="estado = 'Menor con Tutor'"
-    >Menor con Tutor</button>
+    >De 15 a 17 años</button>
     <button
       :class="{ active: estado === 'Menor' }"
       @click="estado = 'Menor'"
-    >Menor</button>
+    >Menor de 15 años</button>
   </div>
 
   <p v-if="estado === 'Mayor'">Si puede crear una cuenta bancaria</p>
