@@ -19,15 +19,12 @@ const codigo = `<li v-for="item in items" :key="item.id">
 </script>
 
 <template>
-  <h1>v-bind:key</h1>
+  <h1>La importancia de v-bind:key</h1>
   <p>
-    La directiva <code>:key</code> (forma corta de <code>v-bind:key</code>)
-    da a cada elemento de un <code>v-for</code> una identidad única. Gracias a
-    ella, Vue reutiliza y reordena los elementos correctos cuando la lista
-    cambia, en lugar de reciclar el DOM por posición.
+    La directiva <code>:key</code>, que es la abreviación de <code>v-bind:key</code>, permite identificar de manera única los elementos generados mediante <code>v-for</code>. Esto ayuda a Vue a reconocer qué elementos deben conservarse o cambiar de posición cuando se modifica una lista, evitando que se reutilicen incorrectamente según su ubicación.
   </p>
 
-  <h2>Ejemplo</h2>
+  <h2>Demostracion</h2>
   <CodeBlock :code="codigo" />
 
   <h2>Resultado</h2>
@@ -41,7 +38,7 @@ const codigo = `<li v-for="item in items" :key="item.id">
 
   <div class="columns">
     <div>
-      <h3>Con :key="indice"</h3>
+      <h3>Usando el índice como clave :key="indice"</h3>
       <ul class="list">
         <li v-for="(item, indice) in items" :key="indice">
           <span>{{ item.nombre }}</span>
@@ -50,7 +47,7 @@ const codigo = `<li v-for="item in items" :key="item.id">
       </ul>
     </div>
     <div>
-      <h3>Con :key="item.id"</h3>
+      <h3>Usando el identificador único :key="item.id"</h3>
       <ul class="list">
         <li v-for="item in items" :key="item.id">
           <span>{{ item.nombre }}</span>
